@@ -7,9 +7,9 @@
 
  	protected function connect(){
  		$this->host='localhost';
- 		$this->dbusername='root';
- 		$this->dbpassword='';
- 		$this->dbname='crud';
+ 		$this->dbusername='root'; //use your database name
+ 		$this->dbpassword='';//use your database password
+ 		$this->dbname='crud';//use you database name
 
  		$con = new mysqli($this->host,$this->dbusername,$this->dbpassword,$this->dbname);
  		return $con;
@@ -65,18 +65,15 @@
  			foreach ($conditionArr as $key => $value) {
  				$fieldArr[]=$key;
  				$valueArr[]=$value;
- 				
  			}
  			$field = implode(",", $fieldArr) ;
  			$value = implode("', '",$valueArr);
  			$value="'".$value."'";
  			 $sql = "Insert into $table ($field) values ($value)";
-
-
  			$result = $this->connect()->query($sql);
  		}
- 		
  	}
+	 // Insert into table_name (fieldsname) values (values)
 
 
 
@@ -99,7 +96,8 @@
  		}
  	}
  }
-
+// delete from $table where $condition
+	 
  public function updateData($table,$conditionArr,$where_field,$where_value){
  		if ($conditionArr!='') {
  			$sql = "update  $table set ";
@@ -111,18 +109,14 @@
  				}
  				else{
  					$sql.= "$key ='$value' ,";
-
  				}
  				$i++;
  			}
- 			
- 				$sql.=" where $where_field ='$where_value'" ;
+ 			$sql.=" where $where_field ='$where_value'" ;
  			$result = $this->connect()->query($sql);
  	}
  }
-
-
-
+// update tablename set fiels  = 'value', fields = 'value' where field = 'wherevalue'
+	 
 }
-
 ?>
