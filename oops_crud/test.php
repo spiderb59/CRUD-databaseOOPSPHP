@@ -1,29 +1,29 @@
 <?php 
-//include('database.php');
+include('database.php');
 
-//$obj = new query();
+$obj = new query(); //creating new object for query. 
 
-//select
-//$conditionArr = array('name'=>'Shital','id'=>'1');
-//$result=$obj->getData('user','*',$conditionArr,'id','asc','7');
-//$result = $obj->getData('user');
-
-
-//insert
-//$conditionArr = array('name'=>'ranjan','email'=>'ranjan@gmail.com','mobile'=>'123456');
-//$result = $obj->insertData('user',$conditionArr);
-//echo '<pre>';
-//print_r($result);
+//select query to fecth data. 
+$conditionArr = array('name'=>'Shital','id'=>'1');
+$result=$obj->getData('user','*',$conditionArr,'id','asc','7');
+$result = $obj->getData('user');
 
 
-//delete
-//$conditionArr = array('id'=>'2');
-//$result = $obj->deleteData('user',$conditionArr);
+//insert query to add data
+$conditionArr = array('name'=>'test','email'=>'test@gmail.com','mobile'=>'123456');
+$result = $obj->insertData('user',$conditionArr);
+echo '<pre>';
+print_r($result);
 
 
-//update
-//$conditionArr = array('email'=>'hey@shitalmainali.com.np','name'=>'Shital Mainali','mobile'=>'9863995023');
-//$result = $obj->updateData('user',$conditionArr,'id',1);
+//delete query by grabbing id
+$conditionArr = array('id'=>'2');
+$result = $obj->deleteData('user',$conditionArr);
+
+
+//update query grabbing id
+$conditionArr = array('email'=>'hey@shitalmainali.com.np','name'=>'Shital Mainali','mobile'=>'9863995023');
+$result = $obj->updateData('user',$conditionArr,'id',1);
 
 
 ?>
