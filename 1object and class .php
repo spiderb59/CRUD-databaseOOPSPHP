@@ -5,10 +5,6 @@ class class1{
 	function test1(){
 		return $this->x++;
 	}
-	
-
-
-
 }//scope till class1
 
 $obj = new class1();
